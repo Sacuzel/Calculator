@@ -16,6 +16,10 @@ public class SciCalc extends javax.swing.JFrame {
         initComponents();
     }
 
+    // Variables
+    double num1, num2, result;
+    String operation, solution;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -25,21 +29,710 @@ public class SciCalc extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        answer = new javax.swing.JLabel();
+        b_cube = new javax.swing.JButton();
+        b_dot = new javax.swing.JButton();
+        b_mod = new javax.swing.JButton();
+        b_frac = new javax.swing.JButton();
+        b_log = new javax.swing.JButton();
+        b_deg = new javax.swing.JButton();
+        b_tan = new javax.swing.JButton();
+        b_cos = new javax.swing.JButton();
+        b_pow = new javax.swing.JButton();
+        b_sin = new javax.swing.JButton();
+        b_clear = new javax.swing.JButton();
+        b_plus = new javax.swing.JButton();
+        b_pi = new javax.swing.JButton();
+        b_sqrt = new javax.swing.JButton();
+        b_bksp = new javax.swing.JButton();
+        b_7 = new javax.swing.JButton();
+        b_minus = new javax.swing.JButton();
+        b_9 = new javax.swing.JButton();
+        b_square = new javax.swing.JButton();
+        b_8 = new javax.swing.JButton();
+        b_4 = new javax.swing.JButton();
+        b_multiply = new javax.swing.JButton();
+        b_6 = new javax.swing.JButton();
+        b_equal = new javax.swing.JButton();
+        b_5 = new javax.swing.JButton();
+        b_1 = new javax.swing.JButton();
+        b_divide = new javax.swing.JButton();
+        b_3 = new javax.swing.JButton();
+        b_0 = new javax.swing.JButton();
+        b_2 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        answer.setBackground(new java.awt.Color(0, 0, 0));
+        answer.setForeground(new java.awt.Color(255, 255, 255));
+
+        b_cube.setBackground(new java.awt.Color(51, 51, 51));
+        b_cube.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_cube.setForeground(new java.awt.Color(255, 255, 255));
+        b_cube.setText("x^3");
+        b_cube.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_cube.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_cubeActionPerformed(evt);
+            }
+        });
+
+        b_dot.setBackground(new java.awt.Color(51, 51, 51));
+        b_dot.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_dot.setForeground(new java.awt.Color(255, 255, 255));
+        b_dot.setText(".");
+        b_dot.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_dot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_dotActionPerformed(evt);
+            }
+        });
+
+        b_mod.setBackground(new java.awt.Color(51, 51, 51));
+        b_mod.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_mod.setForeground(new java.awt.Color(255, 255, 255));
+        b_mod.setLabel("%");
+        b_mod.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_mod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_modActionPerformed(evt);
+            }
+        });
+
+        b_frac.setBackground(new java.awt.Color(51, 51, 51));
+        b_frac.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_frac.setForeground(new java.awt.Color(255, 255, 255));
+        b_frac.setText("1/x");
+        b_frac.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_frac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_fracActionPerformed(evt);
+            }
+        });
+
+        b_log.setBackground(new java.awt.Color(51, 51, 51));
+        b_log.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_log.setForeground(new java.awt.Color(255, 255, 255));
+        b_log.setText("log");
+        b_log.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_log.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_logActionPerformed(evt);
+            }
+        });
+
+        b_deg.setBackground(new java.awt.Color(51, 51, 51));
+        b_deg.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_deg.setForeground(new java.awt.Color(255, 255, 255));
+        b_deg.setText("deg");
+        b_deg.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_deg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_degActionPerformed(evt);
+            }
+        });
+
+        b_tan.setBackground(new java.awt.Color(51, 51, 51));
+        b_tan.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_tan.setForeground(new java.awt.Color(255, 255, 255));
+        b_tan.setText("tan");
+        b_tan.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_tan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_tanActionPerformed(evt);
+            }
+        });
+
+        b_cos.setBackground(new java.awt.Color(51, 51, 51));
+        b_cos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_cos.setForeground(new java.awt.Color(255, 255, 255));
+        b_cos.setText("cos");
+        b_cos.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_cos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_cosActionPerformed(evt);
+            }
+        });
+
+        b_pow.setBackground(new java.awt.Color(51, 51, 51));
+        b_pow.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_pow.setForeground(new java.awt.Color(255, 255, 255));
+        b_pow.setText("x^y");
+        b_pow.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_pow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_powActionPerformed(evt);
+            }
+        });
+
+        b_sin.setBackground(new java.awt.Color(51, 51, 51));
+        b_sin.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_sin.setForeground(new java.awt.Color(255, 255, 255));
+        b_sin.setText("sin");
+        b_sin.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_sin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_sinActionPerformed(evt);
+            }
+        });
+
+        b_clear.setBackground(new java.awt.Color(255, 102, 0));
+        b_clear.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_clear.setForeground(new java.awt.Color(255, 255, 255));
+        b_clear.setText("C");
+        b_clear.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_clearActionPerformed(evt);
+            }
+        });
+
+        b_plus.setBackground(new java.awt.Color(51, 51, 51));
+        b_plus.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_plus.setForeground(new java.awt.Color(255, 255, 255));
+        b_plus.setText("+");
+        b_plus.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_plus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_plusActionPerformed(evt);
+            }
+        });
+
+        b_pi.setBackground(new java.awt.Color(51, 51, 51));
+        b_pi.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_pi.setForeground(new java.awt.Color(255, 255, 255));
+        b_pi.setText("π");
+        b_pi.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_pi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_piActionPerformed(evt);
+            }
+        });
+
+        b_sqrt.setBackground(new java.awt.Color(51, 51, 51));
+        b_sqrt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_sqrt.setForeground(new java.awt.Color(255, 255, 255));
+        b_sqrt.setText("√");
+        b_sqrt.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_sqrt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_sqrtActionPerformed(evt);
+            }
+        });
+
+        b_bksp.setBackground(new java.awt.Color(255, 0, 0));
+        b_bksp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_bksp.setForeground(new java.awt.Color(255, 255, 255));
+        b_bksp.setText("Bksp");
+        b_bksp.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_bksp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_bkspActionPerformed(evt);
+            }
+        });
+
+        b_7.setBackground(new java.awt.Color(51, 51, 51));
+        b_7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_7.setForeground(new java.awt.Color(255, 255, 255));
+        b_7.setText("7");
+        b_7.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_7ActionPerformed(evt);
+            }
+        });
+
+        b_minus.setBackground(new java.awt.Color(51, 51, 51));
+        b_minus.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_minus.setForeground(new java.awt.Color(255, 255, 255));
+        b_minus.setText("-");
+        b_minus.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_minus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_minusActionPerformed(evt);
+            }
+        });
+
+        b_9.setBackground(new java.awt.Color(51, 51, 51));
+        b_9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_9.setForeground(new java.awt.Color(255, 255, 255));
+        b_9.setText("9");
+        b_9.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_9ActionPerformed(evt);
+            }
+        });
+
+        b_square.setBackground(new java.awt.Color(51, 51, 51));
+        b_square.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_square.setForeground(new java.awt.Color(255, 255, 255));
+        b_square.setText("x^2");
+        b_square.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_square.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_squareActionPerformed(evt);
+            }
+        });
+
+        b_8.setBackground(new java.awt.Color(51, 51, 51));
+        b_8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_8.setForeground(new java.awt.Color(255, 255, 255));
+        b_8.setText("8");
+        b_8.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_8ActionPerformed(evt);
+            }
+        });
+
+        b_4.setBackground(new java.awt.Color(51, 51, 51));
+        b_4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_4.setForeground(new java.awt.Color(255, 255, 255));
+        b_4.setText("4");
+        b_4.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_4ActionPerformed(evt);
+            }
+        });
+
+        b_multiply.setBackground(new java.awt.Color(51, 51, 51));
+        b_multiply.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_multiply.setForeground(new java.awt.Color(255, 255, 255));
+        b_multiply.setText("x");
+        b_multiply.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_multiply.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_multiplyActionPerformed(evt);
+            }
+        });
+
+        b_6.setBackground(new java.awt.Color(51, 51, 51));
+        b_6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_6.setForeground(new java.awt.Color(255, 255, 255));
+        b_6.setText("6");
+        b_6.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_6ActionPerformed(evt);
+            }
+        });
+
+        b_equal.setBackground(new java.awt.Color(2, 161, 0));
+        b_equal.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_equal.setForeground(new java.awt.Color(255, 255, 255));
+        b_equal.setText("=");
+        b_equal.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_equal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_equalActionPerformed(evt);
+            }
+        });
+
+        b_5.setBackground(new java.awt.Color(51, 51, 51));
+        b_5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_5.setForeground(new java.awt.Color(255, 255, 255));
+        b_5.setText("5");
+        b_5.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_5ActionPerformed(evt);
+            }
+        });
+
+        b_1.setBackground(new java.awt.Color(51, 51, 51));
+        b_1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_1.setForeground(new java.awt.Color(255, 255, 255));
+        b_1.setText("1");
+        b_1.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_1ActionPerformed(evt);
+            }
+        });
+
+        b_divide.setBackground(new java.awt.Color(51, 51, 51));
+        b_divide.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_divide.setForeground(new java.awt.Color(255, 255, 255));
+        b_divide.setText("/");
+        b_divide.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_divide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_divideActionPerformed(evt);
+            }
+        });
+
+        b_3.setBackground(new java.awt.Color(51, 51, 51));
+        b_3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_3.setForeground(new java.awt.Color(255, 255, 255));
+        b_3.setText("3");
+        b_3.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_3ActionPerformed(evt);
+            }
+        });
+
+        b_0.setBackground(new java.awt.Color(51, 51, 51));
+        b_0.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_0.setForeground(new java.awt.Color(255, 255, 255));
+        b_0.setText("0");
+        b_0.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_0ActionPerformed(evt);
+            }
+        });
+
+        b_2.setBackground(new java.awt.Color(51, 51, 51));
+        b_2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        b_2.setForeground(new java.awt.Color(255, 255, 255));
+        b_2.setText("2");
+        b_2.setPreferredSize(new java.awt.Dimension(72, 60));
+        b_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(b_0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_divide, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(b_equal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_multiply, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(b_square, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_minus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(b_sqrt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_clear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_bksp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_pi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_plus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(b_pow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_deg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_sin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_cos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_tan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(b_frac, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_cube, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_log, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_dot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(b_cube, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(b_dot, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(b_log, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(b_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(b_frac, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_deg, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_tan, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_pow, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_sin, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_cos, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_clear, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_plus, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_sqrt, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_bksp, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_pi, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_minus, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_square, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_multiply, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_equal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_divide, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_0, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void b_cubeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cubeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_cubeActionPerformed
+
+    private void b_dotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_dotActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_dotActionPerformed
+
+    private void b_modActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_modActionPerformed
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(answer.getText());
+        answer.setText("");
+        operation = "%";
+    }//GEN-LAST:event_b_modActionPerformed
+
+    private void b_fracActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_fracActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_fracActionPerformed
+
+    private void b_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_logActionPerformed
+        // TODO add your handling code here:
+        double num_lg = Double.parseDouble(answer.getText());
+        num_lg = Math.log(num_lg);
+        answer.setText(String.valueOf(num_lg));
+    }//GEN-LAST:event_b_logActionPerformed
+
+    private void b_degActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_degActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_degActionPerformed
+
+    private void b_tanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_tanActionPerformed
+        // TODO add your handling code here:
+        double num_tan = Double.parseDouble(answer.getText());
+        num_tan = Math.tan(num_tan);
+        answer.setText(String.valueOf(num_tan));
+    }//GEN-LAST:event_b_tanActionPerformed
+
+    private void b_cosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cosActionPerformed
+        // TODO add your handling code here:
+        double num_cos = Double.parseDouble(answer.getText());
+        num_cos = Math.cos(num_cos);
+        answer.setText(String.valueOf(num_cos));
+    }//GEN-LAST:event_b_cosActionPerformed
+
+    private void b_powActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_powActionPerformed
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(answer.getText());
+        answer.setText("");
+        operation = "^";
+    }//GEN-LAST:event_b_powActionPerformed
+
+    private void b_sinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_sinActionPerformed
+        // TODO add your handling code here:
+        double num_sin = Double.parseDouble(answer.getText());
+        num_sin = Math.sin(num_sin);
+        answer.setText(String.valueOf(num_sin));
+    }//GEN-LAST:event_b_sinActionPerformed
+
+    private void b_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_clearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_clearActionPerformed
+
+    private void b_plusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_plusActionPerformed
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(answer.getText());
+        answer.setText("");
+        operation = "+";
+    }//GEN-LAST:event_b_plusActionPerformed
+
+    private void b_piActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_piActionPerformed
+        // TODO add your handling code here:
+        double num = Math.PI;
+        answer.setText(String.valueOf(num));
+    }//GEN-LAST:event_b_piActionPerformed
+
+    private void b_sqrtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_sqrtActionPerformed
+        // TODO add your handling code here:
+        double num_sqrt = Double.parseDouble(answer.getText());
+        num_sqrt = Math.sqrt(num_sqrt);
+        answer.setText(String.valueOf(num_sqrt));
+    }//GEN-LAST:event_b_sqrtActionPerformed
+
+    private void b_bkspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_bkspActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_bkspActionPerformed
+
+    private void b_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_7ActionPerformed
+        // TODO add your handling code here:
+        String num=answer.getText()+b_7.getText();
+        answer.setText(num);
+    }//GEN-LAST:event_b_7ActionPerformed
+
+    private void b_minusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_minusActionPerformed
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(answer.getText());
+        answer.setText("");
+        operation = "-";
+    }//GEN-LAST:event_b_minusActionPerformed
+
+    private void b_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_9ActionPerformed
+        // TODO add your handling code here:
+        String num=answer.getText()+b_9.getText();
+        answer.setText(num);
+    }//GEN-LAST:event_b_9ActionPerformed
+
+    private void b_squareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_squareActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_squareActionPerformed
+
+    private void b_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_8ActionPerformed
+        // TODO add your handling code here:
+        String num=answer.getText()+b_8.getText();
+        answer.setText(num);
+    }//GEN-LAST:event_b_8ActionPerformed
+
+    private void b_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_4ActionPerformed
+        // TODO add your handling code here:
+        String num=answer.getText()+b_4.getText();
+        answer.setText(num);
+    }//GEN-LAST:event_b_4ActionPerformed
+
+    private void b_multiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_multiplyActionPerformed
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(answer.getText());
+        answer.setText("");
+        operation = "*";
+    }//GEN-LAST:event_b_multiplyActionPerformed
+
+    private void b_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_6ActionPerformed
+        // TODO add your handling code here:
+        String num=answer.getText()+b_6.getText();
+        answer.setText(num);
+    }//GEN-LAST:event_b_6ActionPerformed
+
+    private void b_equalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_equalActionPerformed
+        // TODO add your handling code here:
+
+        num2 = Double.parseDouble(answer.getText());
+        if(operation == "+"){
+            result = num1+num2;
+            solution = String.format("%.3f",result);
+            answer.setText(solution);
+        }
+
+        else if(operation == "-"){
+            result = num1-num2;
+            solution = String.format("%.3f",result);
+            answer.setText(solution);
+        }
+
+        else if(operation == "*"){
+            result = num1*num2;
+            solution = String.format("%.3f",result);
+            answer.setText(solution);
+        }
+
+        else if(operation == "/"){
+            result = num1/num2;
+            solution = String.format("%.3f",result);
+            answer.setText(solution);
+        }
+
+        else if(operation == "%"){
+            result = num1%num2;
+            solution = String.format("%.3f",result);
+            answer.setText(solution);
+        }
+
+        else if(operation == "^"){
+            result = Math.pow(num1, num1);
+            solution = String.format("%.3f",result);
+            answer.setText(solution);
+        }
+
+
+    }//GEN-LAST:event_b_equalActionPerformed
+
+    private void b_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_5ActionPerformed
+        // TODO add your handling code here:
+        String num=answer.getText()+b_5.getText();
+        answer.setText(num);
+    }//GEN-LAST:event_b_5ActionPerformed
+
+    private void b_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_1ActionPerformed
+        // TODO add your handling code here:
+        String num=answer.getText()+b_1.getText();
+        answer.setText(num);
+    }//GEN-LAST:event_b_1ActionPerformed
+
+    private void b_divideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_divideActionPerformed
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(answer.getText());
+        answer.setText("");
+        operation = "/";
+    }//GEN-LAST:event_b_divideActionPerformed
+
+    private void b_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_3ActionPerformed
+        // TODO add your handling code here:
+        String num=answer.getText()+b_3.getText();
+        answer.setText(num);
+    }//GEN-LAST:event_b_3ActionPerformed
+
+    private void b_0ActionPerformed(java.awt.event.ActionEvent evt) {                                     
+        // TODO add your handling code here:
+        String num=answer.getText()+b_0.getText();
+        answer.setText(num);
+    }                                   
+
+    private void b_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_2ActionPerformed
+        // TODO add your handling code here:
+        String num=answer.getText()+b_2.getText();
+        answer.setText(num);
+    }//GEN-LAST:event_b_2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,5 +770,36 @@ public class SciCalc extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel answer;
+    private javax.swing.JButton b_0;
+    private javax.swing.JButton b_1;
+    private javax.swing.JButton b_2;
+    private javax.swing.JButton b_3;
+    private javax.swing.JButton b_4;
+    private javax.swing.JButton b_5;
+    private javax.swing.JButton b_6;
+    private javax.swing.JButton b_7;
+    private javax.swing.JButton b_8;
+    private javax.swing.JButton b_9;
+    private javax.swing.JButton b_bksp;
+    private javax.swing.JButton b_clear;
+    private javax.swing.JButton b_cos;
+    private javax.swing.JButton b_cube;
+    private javax.swing.JButton b_deg;
+    private javax.swing.JButton b_divide;
+    private javax.swing.JButton b_dot;
+    private javax.swing.JButton b_equal;
+    private javax.swing.JButton b_frac;
+    private javax.swing.JButton b_log;
+    private javax.swing.JButton b_minus;
+    private javax.swing.JButton b_mod;
+    private javax.swing.JButton b_multiply;
+    private javax.swing.JButton b_pi;
+    private javax.swing.JButton b_plus;
+    private javax.swing.JButton b_pow;
+    private javax.swing.JButton b_sin;
+    private javax.swing.JButton b_sqrt;
+    private javax.swing.JButton b_square;
+    private javax.swing.JButton b_tan;
     // End of variables declaration//GEN-END:variables
 }
