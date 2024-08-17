@@ -63,8 +63,11 @@ public class SciCalc extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        answer.setBackground(new java.awt.Color(0, 0, 0));
+        answer.setBackground(new java.awt.Color(51, 51, 51));
+        answer.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         answer.setForeground(new java.awt.Color(255, 255, 255));
+        answer.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        answer.setOpaque(true);
 
         b_cube.setBackground(new java.awt.Color(51, 51, 51));
         b_cube.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -522,10 +525,16 @@ public class SciCalc extends javax.swing.JFrame {
 
     private void b_cubeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cubeActionPerformed
         // TODO add your handling code here:
+        double num_cube = Double.parseDouble(answer.getText());
+        num_cube = Math.pow(num_cube, 3);
+        answer.setText(String.valueOf(num_cube));
     }//GEN-LAST:event_b_cubeActionPerformed
 
     private void b_dotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_dotActionPerformed
         // TODO add your handling code here:
+        if(!answer.getText().contains(".")){
+            answer.setText(answer.getText() + b_dot.getText());
+        }
     }//GEN-LAST:event_b_dotActionPerformed
 
     private void b_modActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_modActionPerformed
@@ -537,6 +546,9 @@ public class SciCalc extends javax.swing.JFrame {
 
     private void b_fracActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_fracActionPerformed
         // TODO add your handling code here:
+        double x = Double.parseDouble(String.valueOf(answer.getText()));
+        x= 1/x;
+        answer.setText(String.valueOf(x));
     }//GEN-LAST:event_b_fracActionPerformed
 
     private void b_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_logActionPerformed
@@ -548,6 +560,9 @@ public class SciCalc extends javax.swing.JFrame {
 
     private void b_degActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_degActionPerformed
         // TODO add your handling code here:
+        double deg = Double.parseDouble(String.valueOf(answer.getText()));
+        deg = Math.toDegrees(deg);
+        answer.setText(String.valueOf(deg));
     }//GEN-LAST:event_b_degActionPerformed
 
     private void b_tanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_tanActionPerformed
@@ -580,6 +595,7 @@ public class SciCalc extends javax.swing.JFrame {
 
     private void b_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_clearActionPerformed
         // TODO add your handling code here:
+        answer.setText("");
     }//GEN-LAST:event_b_clearActionPerformed
 
     private void b_plusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_plusActionPerformed
@@ -604,6 +620,13 @@ public class SciCalc extends javax.swing.JFrame {
 
     private void b_bkspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_bkspActionPerformed
         // TODO add your handling code here:
+        String backspace = null;
+        if(answer.getText().length() > 0){
+            StringBuilder temp_sb = new StringBuilder(answer.getText());
+            temp_sb.deleteCharAt(answer.getText().length()-1);
+            backspace = temp_sb.toString();
+            answer.setText(backspace);
+        }
     }//GEN-LAST:event_b_bkspActionPerformed
 
     private void b_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_7ActionPerformed
@@ -627,6 +650,9 @@ public class SciCalc extends javax.swing.JFrame {
 
     private void b_squareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_squareActionPerformed
         // TODO add your handling code here:
+        double num_sq = Double.parseDouble(answer.getText());
+        num_sq = Math.pow(num_sq, 2);
+        answer.setText(String.valueOf(num_sq));
     }//GEN-LAST:event_b_squareActionPerformed
 
     private void b_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_8ActionPerformed
