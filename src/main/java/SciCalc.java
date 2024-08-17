@@ -539,7 +539,12 @@ public class SciCalc extends javax.swing.JFrame {
 
     private void b_modActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_modActionPerformed
         // TODO add your handling code here:
-        num1 = Double.parseDouble(answer.getText());
+        String temp_str = answer.getText();
+
+        if(temp_str.contains(",")){
+            temp_str = temp_str.replace(",", ".");
+        }
+        num1 = Double.parseDouble(temp_str);
         answer.setText("");
         operation = "%";
     }//GEN-LAST:event_b_modActionPerformed
@@ -579,14 +584,24 @@ public class SciCalc extends javax.swing.JFrame {
 
     private void b_tanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_tanActionPerformed
         // TODO add your handling code here:
-        double num_tan = Double.parseDouble(answer.getText());
+        String temp_str = answer.getText();
+
+        if(temp_str.contains(",")){
+            temp_str = temp_str.replace(",", ".");
+        }
+        double num_tan = Double.parseDouble(temp_str);
         num_tan = Math.tan(num_tan);
         answer.setText(String.valueOf(num_tan));
     }//GEN-LAST:event_b_tanActionPerformed
 
     private void b_cosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cosActionPerformed
         // TODO add your handling code here:
-        double num_cos = Double.parseDouble(answer.getText());
+        String temp_str = answer.getText();
+
+        if(temp_str.contains(",")){
+            temp_str = temp_str.replace(",", ".");
+        }
+        double num_cos = Double.parseDouble(temp_str);
         num_cos = Math.cos(num_cos);
         answer.setText(String.valueOf(num_cos));
     }//GEN-LAST:event_b_cosActionPerformed
@@ -600,7 +615,12 @@ public class SciCalc extends javax.swing.JFrame {
 
     private void b_sinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_sinActionPerformed
         // TODO add your handling code here:
-        double num_sin = Double.parseDouble(answer.getText());
+        String temp_str = answer.getText();
+
+        if(temp_str.contains(",")){
+            temp_str = temp_str.replace(",", ".");
+        }
+        double num_sin = Double.parseDouble(temp_str);
         num_sin = Math.sin(num_sin);
         answer.setText(String.valueOf(num_sin));
     }//GEN-LAST:event_b_sinActionPerformed
