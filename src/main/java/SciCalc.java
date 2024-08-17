@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -16,9 +19,11 @@ public class SciCalc extends javax.swing.JFrame {
         initComponents();
     }
 
-    // Variables
+    // Variables and containers
     double num1, num2, result;
     String operation, solution;
+
+    private ArrayList<Double> historyArray = new ArrayList<>();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,6 +65,7 @@ public class SciCalc extends javax.swing.JFrame {
         b_3 = new javax.swing.JButton();
         b_0 = new javax.swing.JButton();
         b_2 = new javax.swing.JButton();
+        history_box = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -399,80 +405,93 @@ public class SciCalc extends javax.swing.JFrame {
             }
         });
 
+        history_box.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        history_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "History" }));
+        history_box.setMaximumSize(new java.awt.Dimension(72, 20));
+        history_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                history_boxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(b_0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_divide, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(b_equal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_multiply, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(b_square, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_minus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(b_sqrt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_clear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_bksp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_pi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_plus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(b_pow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_deg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_sin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_cos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_tan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(b_frac, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_cube, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_log, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_dot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(history_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(b_0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_divide, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(b_equal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_multiply, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(b_square, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_minus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(b_sqrt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_clear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_bksp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_pi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_plus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(b_pow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_deg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_sin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_cos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_tan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(b_frac, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_cube, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_log, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(b_dot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
+                .addComponent(history_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
                 .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -517,7 +536,7 @@ public class SciCalc extends javax.swing.JFrame {
                     .addComponent(b_0, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         pack();
@@ -528,6 +547,9 @@ public class SciCalc extends javax.swing.JFrame {
         double num_cube = Double.parseDouble(answer.getText());
         num_cube = Math.pow(num_cube, 3);
         answer.setText(String.valueOf(num_cube));
+
+        historyArray.add(num_cube);
+        updateHistoryBox();
     }//GEN-LAST:event_b_cubeActionPerformed
 
     private void b_dotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_dotActionPerformed
@@ -551,9 +573,18 @@ public class SciCalc extends javax.swing.JFrame {
 
     private void b_fracActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_fracActionPerformed
         // TODO add your handling code here:
-        double x = Double.parseDouble(String.valueOf(answer.getText()));
+        String temp_str = answer.getText();
+
+        if(temp_str.contains(",")){
+            temp_str = temp_str.replace(",", ".");
+        }
+
+        double x = Double.parseDouble(String.valueOf(temp_str));
         x= 1/x;
         answer.setText(String.valueOf(x));
+
+        historyArray.add(x);
+        updateHistoryBox();
     }//GEN-LAST:event_b_fracActionPerformed
 
     private void b_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_logActionPerformed
@@ -567,6 +598,9 @@ public class SciCalc extends javax.swing.JFrame {
         double num_lg = Double.parseDouble(temp_str);
         num_lg = Math.log(num_lg);
         answer.setText(String.valueOf(num_lg));
+
+        historyArray.add(num_lg);
+        updateHistoryBox();
     }//GEN-LAST:event_b_logActionPerformed
 
     private void b_degActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_degActionPerformed
@@ -592,6 +626,9 @@ public class SciCalc extends javax.swing.JFrame {
         double num_tan = Double.parseDouble(temp_str);
         num_tan = Math.tan(num_tan);
         answer.setText(String.valueOf(num_tan));
+
+        historyArray.add(num_tan);
+        updateHistoryBox();
     }//GEN-LAST:event_b_tanActionPerformed
 
     private void b_cosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cosActionPerformed
@@ -604,6 +641,9 @@ public class SciCalc extends javax.swing.JFrame {
         double num_cos = Double.parseDouble(temp_str);
         num_cos = Math.cos(num_cos);
         answer.setText(String.valueOf(num_cos));
+
+        historyArray.add(num_cos);
+        updateHistoryBox();
     }//GEN-LAST:event_b_cosActionPerformed
 
     private void b_powActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_powActionPerformed
@@ -623,11 +663,17 @@ public class SciCalc extends javax.swing.JFrame {
         double num_sin = Double.parseDouble(temp_str);
         num_sin = Math.sin(num_sin);
         answer.setText(String.valueOf(num_sin));
+
+        historyArray.add(num_sin);
+        updateHistoryBox();
     }//GEN-LAST:event_b_sinActionPerformed
 
     private void b_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_clearActionPerformed
         // TODO add your handling code here:
         answer.setText("");
+        history_box.removeAllItems();
+        historyArray.clear();
+        history_box.addItem("History");
     }//GEN-LAST:event_b_clearActionPerformed
 
     private void b_plusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_plusActionPerformed
@@ -654,6 +700,9 @@ public class SciCalc extends javax.swing.JFrame {
         double num_sqrt = Double.parseDouble(temp_str);
         num_sqrt = Math.sqrt(num_sqrt);
         answer.setText(String.valueOf(num_sqrt));
+
+        historyArray.add(num_sqrt);
+        updateHistoryBox();
     }//GEN-LAST:event_b_sqrtActionPerformed
 
     private void b_bkspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_bkspActionPerformed
@@ -691,6 +740,9 @@ public class SciCalc extends javax.swing.JFrame {
         double num_sq = Double.parseDouble(answer.getText());
         num_sq = Math.pow(num_sq, 2);
         answer.setText(String.valueOf(num_sq));
+
+        historyArray.add(num_sq);
+        updateHistoryBox();
     }//GEN-LAST:event_b_squareActionPerformed
 
     private void b_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_8ActionPerformed
@@ -707,7 +759,13 @@ public class SciCalc extends javax.swing.JFrame {
 
     private void b_multiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_multiplyActionPerformed
         // TODO add your handling code here:
-        num1 = Double.parseDouble(answer.getText());
+        String temp_str = answer.getText();
+
+        if(temp_str.contains(",")){
+            temp_str = temp_str.replace(",", ".");
+        }
+        
+        num1 = Double.parseDouble(temp_str);
         answer.setText("");
         operation = "*";
     }//GEN-LAST:event_b_multiplyActionPerformed
@@ -717,6 +775,7 @@ public class SciCalc extends javax.swing.JFrame {
         String num=answer.getText()+b_6.getText();
         answer.setText(num);
     }//GEN-LAST:event_b_6ActionPerformed
+    
 
     private void b_equalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_equalActionPerformed
         // TODO add your handling code here:
@@ -726,40 +785,73 @@ public class SciCalc extends javax.swing.JFrame {
             result = num1+num2;
             solution = String.format("%.3f",result);
             answer.setText(solution);
+
+            historyArray.add(result);
+            updateHistoryBox();
         }
 
         else if(operation == "-"){
             result = num1-num2;
             solution = String.format("%.3f",result);
             answer.setText(solution);
+
+            historyArray.add(result);
+            updateHistoryBox();
         }
 
         else if(operation == "*"){
             result = num1*num2;
             solution = String.format("%.3f",result);
             answer.setText(solution);
+
+            historyArray.add(result);
+            updateHistoryBox();
         }
 
         else if(operation == "/"){
+            if(num2 == 0){
+                answer.setText("Division by zero error!");
+            }
+
+            else{
             result = num1/num2;
             solution = String.format("%.3f",result);
             answer.setText(solution);
+
+            historyArray.add(result);
+            updateHistoryBox();
+            }
         }
 
         else if(operation == "%"){
             result = num1%num2;
             solution = String.format("%.3f",result);
             answer.setText(solution);
+
+            historyArray.add(result);
+            updateHistoryBox();
         }
 
         else if(operation == "^"){
             result = Math.pow(num1, num2);
             solution = String.format("%.3f",result);
             answer.setText(solution);
+
+            historyArray.add(result);
+            updateHistoryBox();
         }
 
-
     }//GEN-LAST:event_b_equalActionPerformed
+
+    private void updateHistoryBox() {
+        // Add all results from the list to the ComboBox
+        history_box.removeAllItems();  // Clear the ComboBox model
+        history_box.addItem("History");
+        for (Double res : historyArray) {
+            history_box.addItem(String.format("%.3f", res));
+        }
+    }
+
 
     private void b_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_5ActionPerformed
         // TODO add your handling code here:
@@ -775,7 +867,14 @@ public class SciCalc extends javax.swing.JFrame {
 
     private void b_divideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_divideActionPerformed
         // TODO add your handling code here:
-        num1 = Double.parseDouble(answer.getText());
+
+        String temp_str = answer.getText();
+
+        if(temp_str.contains(",")){
+            temp_str = temp_str.replace(",", ".");
+        }
+        num1 = Double.parseDouble(temp_str);
+
         answer.setText("");
         operation = "/";
     }//GEN-LAST:event_b_divideActionPerformed
@@ -797,6 +896,10 @@ public class SciCalc extends javax.swing.JFrame {
         String num=answer.getText()+b_2.getText();
         answer.setText(num);
     }//GEN-LAST:event_b_2ActionPerformed
+
+    private void history_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_history_boxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_history_boxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -865,5 +968,6 @@ public class SciCalc extends javax.swing.JFrame {
     private javax.swing.JButton b_sqrt;
     private javax.swing.JButton b_square;
     private javax.swing.JButton b_tan;
+    private javax.swing.JComboBox<String> history_box;
     // End of variables declaration//GEN-END:variables
 }
