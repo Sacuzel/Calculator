@@ -553,14 +553,26 @@ public class SciCalc extends javax.swing.JFrame {
 
     private void b_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_logActionPerformed
         // TODO add your handling code here:
-        double num_lg = Double.parseDouble(answer.getText());
+        String temp_str = answer.getText();
+
+        if(temp_str.contains(",")){
+            temp_str = temp_str.replace(",", ".");
+        }
+
+        double num_lg = Double.parseDouble(temp_str);
         num_lg = Math.log(num_lg);
         answer.setText(String.valueOf(num_lg));
     }//GEN-LAST:event_b_logActionPerformed
 
     private void b_degActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_degActionPerformed
         // TODO add your handling code here:
-        double deg = Double.parseDouble(String.valueOf(answer.getText()));
+        String temp_str = answer.getText();
+
+        if(temp_str.contains(",")){
+            temp_str = temp_str.replace(",", ".");
+        }
+
+        double deg = Double.parseDouble(String.valueOf(temp_str));
         deg = Math.toDegrees(deg);
         answer.setText(String.valueOf(deg));
     }//GEN-LAST:event_b_degActionPerformed
@@ -613,7 +625,13 @@ public class SciCalc extends javax.swing.JFrame {
 
     private void b_sqrtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_sqrtActionPerformed
         // TODO add your handling code here:
-        double num_sqrt = Double.parseDouble(answer.getText());
+        String temp_str = answer.getText();
+
+        if(temp_str.contains(",")){
+            temp_str = temp_str.replace(",", ".");
+        }
+
+        double num_sqrt = Double.parseDouble(temp_str);
         num_sqrt = Math.sqrt(num_sqrt);
         answer.setText(String.valueOf(num_sqrt));
     }//GEN-LAST:event_b_sqrtActionPerformed
@@ -715,7 +733,7 @@ public class SciCalc extends javax.swing.JFrame {
         }
 
         else if(operation == "^"){
-            result = Math.pow(num1, num1);
+            result = Math.pow(num1, num2);
             solution = String.format("%.3f",result);
             answer.setText(solution);
         }
